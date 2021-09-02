@@ -4,14 +4,14 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class PwSkeleton extends Command
+class FooBar extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'pw:skeleton
+    protected $signature = 'foo:bar
                                 {var1 : for example}';
 
     /**
@@ -38,7 +38,8 @@ class PwSkeleton extends Command
      */
     public function handle()
     {
-        echo 'var 1: ' . $this->argument('var1');
+        $var1 = $this->argument('var1');
+        echo 'var 1: ' . $var1;
         return 0;
     }
 }
