@@ -165,6 +165,8 @@ return [
         /*
          * Package Service Providers...
          */
+        Foostart\Acl\Authentication\AuthenticationServiceProvider::class,
+        Foostart\Category\CategoryServiceProvider::class,
 
         /*
          * Application Service Providers...
