@@ -26,7 +26,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="https://mail.google.com/">
+                        <a href="https://mail.google.com/" target="_blank">
                             <i class="fa fa-envelope-o">
                             </i>
                             Gmail
@@ -38,7 +38,8 @@
                             Tài khoản <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="/admin">Quản trị</a></li>
+                            <li><a href="/admin" target="_blank">>Quản trị</a></li>
+                            <li class="item"><a href="/signup" target="_blank">> Đăng ký </a></li>
                         </ul>
                     </li>
                 </ul>
