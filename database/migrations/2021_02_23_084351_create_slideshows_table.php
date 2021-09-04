@@ -5,12 +5,12 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Foostart\Category\Helpers\FoostartMigration;
 
-class CreateContextsTable extends FoostartMigration
+class CreateSlideshowsTable extends FoostartMigration
 {
     public function __construct()
     {
-        $this->table = 'contexts';
-        $this->prefix_column = 'context_';
+        $this->table = 'slideshows';
+        $this->prefix_column = 'slideshow_';
     }
 
     /**
@@ -25,12 +25,16 @@ class CreateContextsTable extends FoostartMigration
 
             $table->increments($this->prefix_column . 'id')->comment('Primary key');
 
+            // Relation
+            $table->integer('category_id')->comment('Category ID');
+            $table->integer('style_id')->comment('Style ID');
+
             // Other attributes
-            $table->string($this->prefix_column . 'name', 255)->comment('Context name');
-            $table->string($this->prefix_column . 'ref', 255)->comment('Context references');
-            $table->string($this->prefix_column . 'key', 255)->comment('Context key');
-            $table->string($this->prefix_column . 'slug', 1000)->nullable()->comment('Context slug');
-            $table->string($this->prefix_column . 'notes', 1000)->nullable()->comment('Category overview');
+            $table->string($this->prefix_column . 'name', 255)->comment('Slideshow name');
+            $table->string($this->prefix_column . 'overview', 1000)->comment('Slideshow overview');
+            $table->text($this->prefix_column . 'description')->comment('Slideshow description');
+            $table->string($this->prefix_column . 'image', 255)->nullable()->comment('Image path');
+            $table->text($this->prefix_column . 'images')->nullable()->comment('List of image paths');
 
             //Set common columns
             $this->setCommonColumns($table);

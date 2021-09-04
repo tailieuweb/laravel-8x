@@ -5,12 +5,12 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Foostart\Category\Helpers\FoostartMigration;
 
-class CreateContextsTable extends FoostartMigration
+class CreateSlideshowStylesTable extends FoostartMigration
 {
     public function __construct()
     {
-        $this->table = 'contexts';
-        $this->prefix_column = 'context_';
+        $this->table = 'slideshow_styles';
+        $this->prefix_column = 'style_';
     }
 
     /**
@@ -25,12 +25,14 @@ class CreateContextsTable extends FoostartMigration
 
             $table->increments($this->prefix_column . 'id')->comment('Primary key');
 
+            // Relation
             // Other attributes
-            $table->string($this->prefix_column . 'name', 255)->comment('Context name');
-            $table->string($this->prefix_column . 'ref', 255)->comment('Context references');
-            $table->string($this->prefix_column . 'key', 255)->comment('Context key');
-            $table->string($this->prefix_column . 'slug', 1000)->nullable()->comment('Context slug');
-            $table->string($this->prefix_column . 'notes', 1000)->nullable()->comment('Category overview');
+            $table->string($this->prefix_column . 'name', 255)->comment('Style name');
+            $table->string($this->prefix_column . 'image', 255)->comment('Style image');
+            $table->string($this->prefix_column . 'view_file', 255)->comment('View file');
+            $table->string($this->prefix_column . 'js_file', 1000)->comment('Js file');
+            $table->string($this->prefix_column . 'css_file', 1000)->comment('Css file');
+            $table->text($this->prefix_column . 'view_content')->comment('View content');
 
             //Set common columns
             $this->setCommonColumns($table);
