@@ -23,8 +23,28 @@ class ProductController extends FooController
 {
     public function index() {
         $products = Product::all();
+        $categories = [];
+        foreach ($products as $product) {
 
-        return view('product.list', ['products' => $products]);
+            $user = $this->getUser($product->created_user_id);
+            $level = $user->user_profile();
+
+            $level_id = $level->first()->level_id;
+
+            $obj_category = new Category();
+            $params = ['id' => $level_id];
+            $category = $obj_category->selectItem($params);
+
+            //
+            $user = $this->getUser($user->id);
+            $user = $user->toArray();
+
+            $category_name = $user['department'][$user['user_profile']['category_id']];
+
+            $categories[] = $category_name;
+        }
+
+        return view('product.list', ['products' => $products, 'categories' => $categories]);
     }
 
     public function manage() {

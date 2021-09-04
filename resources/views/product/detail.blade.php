@@ -23,13 +23,13 @@
                             <div class="col-md-8 col-sm-12 col-xs-12">
 
 
-                                <section class="events flexslider" style="height: 458px;">
+                                <section class="events flexslider">
                                     <h3>Thông báo - Tin tức</h3>
 
                                     <h5><b> Nhóm:</b>{!! $category !!}</h5>
-                                    <h4>Tiêu đề: {!! $product->post_name !!}</h4>
+                                    <h4>{!! $product->post_name !!}</h4>
 
-                                    <p>Nội dung: <br>{!! $product->post_description !!}</p>
+                                    <p><br>{!! $product->post_description !!}</p>
                                 </section>
                             </div>
                         </div>

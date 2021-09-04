@@ -14,19 +14,19 @@
         <link href="{{ asset('assets/css/61.css') }}" rel="stylesheet">
         <link href="{{ asset('assets/css/2048.css') }}" rel="stylesheet">
         <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-        
-        
+
+
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     </head>
     <body>
-         @include('product.header')
+         @include('product.header-1')
 
         @yield('content')
-        
+
          @include('product.partners')
          @include('product.footer')
-         
+
         <script type="text/javascript" src="{{ asset('assets/js/jquery-2.1.4.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('assets/js/swiper.min.js') }}"></script>

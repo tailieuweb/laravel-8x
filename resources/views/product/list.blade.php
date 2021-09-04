@@ -23,7 +23,7 @@
                             <div class="col-md-8 col-sm-12 col-xs-12">
 
 
-                                <section class="events flexslider" style="height: 458px;">
+                                <section class="events flexslider">
                                     <h3>Thông báo - Tin tức</h3>
                                     <ul class="swiper-container content-list">
                                          <div class="swiper-wrapper">
@@ -34,6 +34,7 @@
                                                      <article>
                                                          <span class="date">{{ $products[$j]->created_at->format('d') }}<span>{{ $products[$j]->created_at->format('m') }}-{{ $products[$j]->created_at->format('Y') }}</span></span>
                                                          <h3><a href="{!! URL::route('detail', [   'id' => $products[$j]->post_id]) !!}"><?php echo $products[$j]->post_name; ?></a></h3>
+                                                         <p><?php echo $categories[$j] ?></p>
                                                          <p><?php echo $products[$j]->post_overview; ?></p>
                                                      </article>
                                                      <?php endfor; ?>
