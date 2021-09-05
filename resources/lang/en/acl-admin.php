@@ -75,12 +75,15 @@ return [
         'reset' => 'Reset',
         'submit' => 'Submit',
         'delete' => 'Delete',
+        'trash' => 'Trash',
+        'restore' => 'Restore',
+        'edit-profile' => 'Edit profile',
         'upload-avatar' => 'Update avatar',
         'update-avatar' => 'Update avatar',
         'search' => 'Search',
         'save' => 'Save',
-        'delete-in-trash' => 'In trash',
-        'delete-forever' => 'Forever',
+        'delete-in-trash' => 'Trash',
+        'delete-forever' => 'Delete forever',
     ],
 
 
@@ -94,6 +97,9 @@ return [
     'hint' => [
         'delete-forever' => 'Delete forever',
         'delete-in-trash' => 'Delete in trash',
+        'deleted' => 'In trash',
+        'available' => 'Available',
+        'inactive' => 'Inactive'
     ],
 
     /***********************************************************************
@@ -232,6 +238,7 @@ return [
     'messages' => [
         'message-last-login' => 'not logged yet.',
         'user-delete' => 'Are you sure to delete this item?',
+        'user-restore' => 'Are you sure to restore this item?',
         'permission-not-found' => 'No permissions found.',
         'empty-data' => 'Empty data',
     ],
