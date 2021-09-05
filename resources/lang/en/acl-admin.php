@@ -49,13 +49,15 @@ return [
     ],
 
     'sex' => [
-        0 => 'Any',
         1 => 'Female',
         2 => 'Male',
         3 => 'Other',
     ],
     'banned' => [
-        0 => 'Any',
+        1 => 'Yes',
+        2 => 'No',
+    ],
+    'active' => [
         1 => 'Yes',
         2 => 'No',
     ],
@@ -77,8 +79,22 @@ return [
         'update-avatar' => 'Update avatar',
         'search' => 'Search',
         'save' => 'Save',
+        'delete-in-trash' => 'In trash',
+        'delete-forever' => 'Forever',
     ],
 
+
+    /*
+    |-----------------------------------------------------------------------
+    | Hint
+    |-----------------------------------------------------------------------
+    | The list of hint
+    |
+    */
+    'hint' => [
+        'delete-forever' => 'Delete forever',
+        'delete-in-trash' => 'Delete in trash',
+    ],
 
     /***********************************************************************
      * |-----------------------------------------------------------------------
@@ -203,6 +219,7 @@ return [
         'filename' => 'File name',
         'order' => '#',
         'id' => 'ID',
+        'keyword' => 'Keyword',
     ],
 
 
