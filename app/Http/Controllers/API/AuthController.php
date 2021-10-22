@@ -5,6 +5,7 @@ use App\Http\Controllers\API\BaseController as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Models\User;
+use Illuminate\Database\QueryException;
 
 class AuthController extends BaseController
 {
@@ -45,11 +46,19 @@ class AuthController extends BaseController
 
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
-        $user = User::create($input);
-        $success['token'] =  $user->createToken('MyAuthApp')->plainTextToken;
-        $success['name'] =  $user->name;
-
-        return $this->sendResponse($success, 'User created successfully.');
+        try {
+            $user = User::create($input);
+            $success['token'] =  $user->createToken('MyAuthApp')->plainTextToken;
+            $success['name'] =  $user->name;
+            $success['success'] = true;
+            $success['message'] = 'User created successfully.';
+        } catch (QueryException $e) {
+            $success['token'] = '';
+            $success['name'] = '';
+            $success['success'] = false;
+            $success['message'] = 'Duplicate entry';
+        }
+        return $this->sendResponse($success, $success['message'] );
     }
 
 }
