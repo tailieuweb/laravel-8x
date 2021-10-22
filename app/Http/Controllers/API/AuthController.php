@@ -23,7 +23,10 @@ class AuthController extends BaseController
             $authUser = Auth::user();
             $success['token'] =  $authUser->createToken('MyAuthApp')->plainTextToken;
             $success['name'] =  $authUser->name;
-
+            $success['id'] =  $authUser->id;
+            $success['email'] =  $authUser->email;
+            $success['created_at'] =  $authUser->created_at;
+            $success['updated_at'] =  $authUser->updated_at;
             return $this->sendResponse($success, 'User signed in');
         }
         else{
