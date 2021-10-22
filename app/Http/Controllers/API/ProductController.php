@@ -74,7 +74,10 @@ class ProductController extends BaseController
         }
 
         $product->title = $input['title'];
+        $product->user_id = $input['user_id'];
+        $product->category_id = $input['category_id'];
         $product->description = $input['description'];
+
 
         $product->save();
 
