@@ -18,16 +18,17 @@ var swiper = new Swiper('.partner-list', {
           slidesPerView: 2,
           spaceBetween: 30,
           slidesPerGroup: 1,
-          
+
         },
       },
     });
-    
+
     $(document).ready(function() {
- var swiper = new Swiper('.content-list', {
-    navigation: {
-       nextEl: '.flex-next',
-      prevEl:  '.flex-prev',
-    },
-  });
+        function mySubmitFunction(e) {
+            e.preventDefault();
+            console.log('aaa');
+            return false;
+        }
+
 });
+

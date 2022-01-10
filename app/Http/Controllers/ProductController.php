@@ -15,6 +15,7 @@ use Validator;
 use Foostart\Category\Library\Controllers\FooController;
 use Foostart\Category\Models\Category;
 use View, Redirect, App, Config;
+use Illuminate\Support\Facades\Http;
 
 use GuzzleHttp\Client;
 
@@ -43,8 +44,9 @@ class ProductController extends FooController
 
             $categories[] = $category_name;
         }
+        $publicKey = file_get_contents(storage_path('oauth-public.key'));
 
-        return view('product.list', ['products' => $products, 'categories' => $categories]);
+        return view('product.list', ['products' => $products, 'categories' => $categories, 'publicKey'=>$publicKey]);
     }
 
     public function manage() {
@@ -59,10 +61,12 @@ class ProductController extends FooController
                 'secret' => $this->login($user->email, '123456789')
                 ];
         };
+
         return view('product.manage', ['accounts' => $accounts]);
     }
 
     public function post() {
+
         return view('product.post', []);
     }
     public function send(Request $request) {
@@ -88,7 +92,9 @@ class ProductController extends FooController
                 ],
                 'body' => json_encode([
                     'name' => $input['name'],
-                    'detail' => $input['detail']
+                    'detail' => $input['detail'],
+                    'email' => $input['email'],
+                    'token' => $input['token']
                 ]),
             ]);
             return json_decode((string) $response->getBody(), true);
@@ -96,6 +102,7 @@ class ProductController extends FooController
             return response()->json("unauthorized", 401);
         }
     }
+
 
     public function about() {
 
@@ -175,5 +182,45 @@ class ProductController extends FooController
         $pluck_select_category_level = $obj_category->pluckSelect($params_level);
 
         return $pluck_select_category_department;
+    }
+
+    public function verify(Request $request) {
+        $data = [
+            'key' => $request->get('key'),
+            'publicKey' => $request->get('publicKey'),
+        ];
+
+        $publicKey = file_get_contents(storage_path('oauth-public.key'));
+        $publicKey = preg_replace("/\r|\n/", "", $publicKey);
+        $data['publicKey'] = preg_replace("/ /", "", $data['publicKey']);
+        $data['publicKey'] = preg_replace("/BEGINPUBLICKEY/", "BEGIN PUBLIC KEY", $data['publicKey']);
+        $data['publicKey'] = preg_replace("/ENDPUBLICKEY/", "END PUBLIC KEY", $data['publicKey']);
+
+        //verify public key
+        if (strcmp(trim($data['publicKey']), trim($publicKey)) != 0) {
+            return response()->json(['error' => true], 200);
+        }
+
+
+        //verify key
+        $url = 'http://son.local/api/verify';
+        try {
+            $http = new Client;
+
+
+            $response = Http::withHeaders([
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Bearer  ' . $data['key']
+            ])->get($url, [
+                'name' => 'Taylor',
+            ]);
+
+            return response()->json($response->json(), 200);
+
+        } catch (\Throwable $e) {
+            return response()->json(['error' => true], 200);
+        }
+
+        return response()->json(['error' => true], 200);
     }
 }

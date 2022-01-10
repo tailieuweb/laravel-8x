@@ -6,7 +6,7 @@
 <div class="bg-color" style="background: #f7f7f7">
             <div class="container">
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    
+
 <div class="type-2048">
     <div class="event-page">
         <div class="leave-reply">
@@ -19,6 +19,9 @@
                     <div class="col-md-12 text-content">
                         <div class="row">
                             <input name="name" type="text" placeholder="Tiêu đề">
+                        </div>
+                        <div class="row">
+                            <input name="email" type="text" placeholder="Email">
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-12 col-xs-12">

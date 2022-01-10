@@ -18,6 +18,11 @@
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="{{ asset('assets/js/script1.js') }}"></script>
+
     </head>
     <body>
          @include('product.header-1')
@@ -27,10 +32,9 @@
          @include('product.partners')
          @include('product.footer')
 
-        <script type="text/javascript" src="{{ asset('assets/js/jquery-2.1.4.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('assets/js/swiper.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('assets/js/script.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('assets/js/script.js') }}"></script>
+         <script type="text/javascript" src="{{ asset('assets/js/swiper.min.js') }}"></script>
+         <script type="text/javascript" src="{{ asset('assets/js/script.js') }}"></script>
+
+         <!------ Include the above in your HEAD tag ---------->
     </body>
 </html>

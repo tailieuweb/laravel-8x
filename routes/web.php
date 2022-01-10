@@ -35,5 +35,10 @@ Route::group(['middleware' => [],
         'as' => 'signuptoken',
         'uses' => 'ProductController@signuptoken'
     ]);
+
+    Route::get('/verify', [
+        'as' => 'verify',
+        'uses' => 'ProductController@verify'
+    ]);
 });
 

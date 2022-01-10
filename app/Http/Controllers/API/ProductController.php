@@ -48,20 +48,31 @@ class ProductController extends BaseController
 //        ];
         $validator = Validator::make($input, [
             'name' => 'required',
-            'detail' => 'required'
+            'detail' => 'required',
+            'email' => 'required',
+            'token' => 'required',
         ]);
 
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
         }
 
-        $user = Auth::user();
+        $authentication = \App::make('authenticator');
+//
+//        $user = Auth::user();
+        try {
+            $user = $authentication->getUser($input['email']);
+        }catch (\Throwable $e) {
+            return null;
+        }
+
         $user_info = $this->getUser($user->id);
 
         $input['created_user_id'] = $user->id;
         $input['updated_user_id'] = $user->id;
         $input['post_name'] = $input['name'];
         $input['post_description'] = $input['detail'];
+        $input['token'] = $input['token'];
 
         $product = Product::create($input);
         return $this->sendResponse(new ProductResource($product), 'Product created successfully.');
@@ -121,5 +132,12 @@ class ProductController extends BaseController
         $product->delete();
 
         return $this->sendResponse([], 'Product deleted successfully.');
+    }
+
+    public function verify() {
+        $user = Auth::user();
+        $user_info = $this->getUser($user->id);
+        return response()->json($user_info, 200);
+        return $this->sendResponse($user_info, 'ok');
     }
 }

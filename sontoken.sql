@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3308
--- Generation Time: Sep 04, 2021 at 09:18 AM
--- Server version: 5.7.31
--- PHP Version: 7.4.9
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jan 10, 2022 at 08:01 AM
+-- Server version: 5.7.36
+-- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -288,7 +288,9 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('c0a86ef74c697a8892003ab45b12a1ed8effd3144662ca9f16afe3402654965ee6340872710f3b78', 1, 1, 'MyApp', '[]', 0, '2021-09-04 01:24:46', '2021-09-04 01:24:46', '2022-09-04 08:24:46'),
 ('c1873edfaf5b1d4ab6768533d1bd24db9a3c5638c08612758c1532e966fd4dc392ed29fbd3361f11', 9, 1, 'MyApp', '[]', 0, '2021-09-04 01:24:46', '2021-09-04 01:24:46', '2022-09-04 08:24:46'),
 ('548b2379f623279a920e451edeb2590d4f24547e9ee4b9d35c11ce278bffabb1867009931cc45ace', 1, 1, 'MyApp', '[]', 0, '2021-09-04 01:24:50', '2021-09-04 01:24:50', '2022-09-04 08:24:50'),
-('bf13473826428d02b3a396126f9ec3521450239c24543c74ace4a8ba12adec222590bca7485a0aad', 9, 1, 'MyApp', '[]', 0, '2021-09-04 01:24:51', '2021-09-04 01:24:51', '2022-09-04 08:24:51');
+('bf13473826428d02b3a396126f9ec3521450239c24543c74ace4a8ba12adec222590bca7485a0aad', 9, 1, 'MyApp', '[]', 0, '2021-09-04 01:24:51', '2021-09-04 01:24:51', '2022-09-04 08:24:51'),
+('61f85ec488acb0bd32738eccee559571f85dd2ddc26761eaa55ead18796cf7af7342ab8e2cf61255', 11, 1, 'MyApp', '[]', 0, '2022-01-08 01:31:19', '2022-01-08 01:31:19', '2023-01-08 08:31:19'),
+('1dc0169da07c931fea74c2f2ab9d5de82b4bc41e1d98f71bba9c7f4f695c8db28b517de4462e21e3', 11, 1, 'MyApp', '[]', 0, '2022-01-08 01:32:07', '2022-01-08 01:32:07', '2023-01-08 08:32:07');
 
 -- --------------------------------------------------------
 
@@ -431,6 +433,7 @@ INSERT INTO `permission` (`id`, `overview`, `description`, `url`, `permission`, 
 DROP TABLE IF EXISTS `posts`;
 CREATE TABLE IF NOT EXISTS `posts` (
   `post_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Primary key',
+  `token` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `category_id` int(11) DEFAULT NULL COMMENT 'Category ID',
   `slideshow_id` int(11) DEFAULT NULL COMMENT 'Slideshow ID',
   `post_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Post name',
@@ -451,21 +454,15 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`post_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`post_id`, `category_id`, `slideshow_id`, `post_name`, `post_order`, `post_slug`, `post_overview`, `post_description`, `post_image`, `post_files`, `post_cache_comments`, `post_cache_other_posts`, `post_cache_time`, `status`, `sequence`, `created_user_id`, `updated_user_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(10, NULL, NULL, 'Tuyển dụng năm 2022', NULL, NULL, 'Khoa Kế toán', '<p>Bộ Văn h&oacute;a, Thể thao v&agrave; Du lịch đang xin &yacute; kiến c&aacute;c hội ng&agrave;nh li&ecirc;n quan để soạn dự thảo quy tắc ứng xử của nghệ sĩ.</p>\r\n<p>&Ocirc;ng Tạ Quang Đ&ocirc;ng - Thứ trưởng phụ tr&aacute;ch khối nghệ thuật - cho biết văn bản được x&acirc;y dựng để nghệ sĩ ứng xử c&oacute; văn h&oacute;a, giữ g&igrave;n v&agrave; ph&aacute;t huy gi&aacute; trị truyền thống, n&acirc;ng cao &yacute; thức tr&aacute;ch nhiệm, chuẩn mực đạo đức. &Ocirc;ng Quang Đ&ocirc;ng n&oacute;i: \"Đ&acirc;y l&agrave; khung về quy tắc ứng xử chứ kh&ocirc;ng phải quy phạm ph&aacute;p luật, kh&ocirc;ng c&oacute; phần xử phạt, v&igrave; thế kh&ocirc;ng c&oacute; chuyện cấm s&oacute;ng c&aacute;c nghệ sĩ\". Theo &ocirc;ng, bộ quy tắc &aacute;p dụng với nghệ sĩ tự do lẫn thuộc c&aacute;c đơn vị nghệ thuật c&ocirc;ng lập.</p>\r\n<p>Ngo&agrave;i quy định nghề nghiệp, bản dự thảo đề cập một số vấn đề li&ecirc;n quan đến ứng xử tr&ecirc;n b&aacute;o ch&iacute;, truyền th&ocirc;ng, mạng x&atilde; hội v&agrave; c&aacute;c hoạt động cộng đồng. Theo đ&oacute;, với đồng nghiệp, nghệ sĩ kh&ocirc;ng c&ocirc;ng k&iacute;ch, b&agrave;i x&iacute;ch m&agrave; n&ecirc;n cạnh tranh l&agrave;nh mạnh. Với c&ocirc;ng ch&uacute;ng, nghệ sĩ cần tận t&acirc;m cống hiến, lắng nghe g&oacute;p &yacute; của kh&aacute;n giả, kh&ocirc;ng lợi dụng danh tiếng để trục lợi.</p>\r\n<p>Trong c&aacute;c hoạt động x&atilde; hội, nghệ sĩ phải c&oacute; tr&aacute;ch nhiệm đ&oacute;ng g&oacute;p cho cộng đồng, đồng thời minh bạch hoạt động x&atilde; hội, từ thiện. Dự thảo nhấn mạnh nghệ sĩ kh&ocirc;ng tham gia quảng c&aacute;o sản phẩm k&eacute;m chất lượng, ủng hộ hoạt động m&ecirc; t&iacute;n dị đoan. Tr&ecirc;n mạng x&atilde; hội, nghệ sĩ ph&aacute;t ng&ocirc;n trung thực, kh&ocirc;ng d&ugrave;ng ng&ocirc;n ngữ phản cảm, tr&aacute;i thuần phong mỹ tục, kh&ocirc;ng đăng tải c&aacute;c th&ocirc;ng tin sai sự thật, x&uacute;c phạm người kh&aacute;c...</p>\r\n<p>Bộ Văn h&oacute;a, Thể thao v&agrave; Du lịch đ&atilde; gửi văn bản dự thảo cho s&aacute;u đơn vị gồm Hội Điện ảnh, Hội Mỹ thuật, Hội Nghệ sĩ m&uacute;a, Hội Nghệ sĩ s&acirc;n khấu, Hội Nghệ sĩ Nhiếp ảnh, Hội Nhạc sĩ. &Ocirc;ng Đinh C&ocirc;ng Thuận - Ch&aacute;nh văn ph&ograve;ng Hội Nhạc sĩ Việt Nam - cho biết đ&atilde; nhận được văn bản. \"T&ocirc;i thấy nội dung c&aacute;c quy định trong dự thảo c&ograve;n kh&aacute; chung chung, kh&ocirc;ng c&oacute; chế t&agrave;i cụ thể, rất kh&oacute; &aacute;p dụng với c&aacute;c nghệ sĩ thuộc khối ngo&agrave;i c&ocirc;ng lập\", &ocirc;ng Thuận n&oacute;i.</p>', NULL, '[]', NULL, NULL, NULL, NULL, NULL, 9, 9, NULL, '2021-09-04 01:25:03', '2021-09-04 01:57:53'),
-(11, NULL, NULL, 'Tuyển sinh năm 2021', NULL, NULL, 'Tuyển sinh năm 2021', 'a', NULL, NULL, NULL, NULL, NULL, 1, NULL, 9, 9, NULL, '2021-09-04 01:25:03', '2021-09-04 01:25:03'),
-(12, NULL, NULL, 'Giải thưởng Nhân tài đất việt', NULL, NULL, 'Giải thưởng Nhân tài đất việt', 'asdfasdf', NULL, NULL, NULL, NULL, NULL, 1, NULL, 9, 9, NULL, '2021-09-04 01:25:11', '2021-09-04 01:25:11'),
-(13, NULL, NULL, 'Cuộc thi Đoàn Thanh Niên', NULL, NULL, 'Cuộc thi Đoàn Thanh Niên', 'asdfasdf', NULL, NULL, NULL, NULL, NULL, 1, NULL, 9, 9, NULL, '2021-09-04 01:25:11', '2021-09-04 01:25:11'),
-(14, NULL, NULL, 'Cuộc thi khởi nghiệp tại TDC', NULL, NULL, 'Cuộc thi khởi nghiệp tại TDC', 'a', NULL, NULL, NULL, NULL, NULL, 1, NULL, 9, 9, NULL, '2021-09-04 01:25:03', '2021-09-04 01:25:03'),
-(9, NULL, NULL, 'Ngày hội việc làm', NULL, NULL, 'Ngày hội việc làm', 'asdfasdf', NULL, NULL, NULL, NULL, NULL, 1, NULL, 9, 9, NULL, '2021-09-04 01:25:11', '2021-09-04 01:25:11'),
-(8, NULL, NULL, 'Hội thao 20/11', NULL, NULL, 'Hội thao 20/11', 'asdfasdf', NULL, NULL, NULL, NULL, NULL, 1, NULL, 9, 9, NULL, '2021-09-04 01:25:11', '2021-09-04 01:25:11'),
-(7, NULL, NULL, 'Mừng ngày khai trường', NULL, NULL, 'Mừng ngày khai trường', 'a', NULL, NULL, NULL, NULL, NULL, 1, NULL, 9, 9, NULL, '2021-09-04 01:25:03', '2021-09-04 01:25:03');
+INSERT INTO `posts` (`post_id`, `token`, `category_id`, `slideshow_id`, `post_name`, `post_order`, `post_slug`, `post_overview`, `post_description`, `post_image`, `post_files`, `post_cache_comments`, `post_cache_other_posts`, `post_cache_time`, `status`, `sequence`, `created_user_id`, `updated_user_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, '', NULL, NULL, 'asdfasf', NULL, NULL, NULL, 'asdfasdf', NULL, NULL, NULL, NULL, NULL, 1, NULL, 11, 11, NULL, '2022-01-09 03:57:38', '2022-01-09 03:57:38'),
+(2, 'aasdfasdfasdf', NULL, NULL, '2323q32r', NULL, NULL, NULL, 'weawef', NULL, NULL, NULL, NULL, NULL, 1, NULL, 11, 11, NULL, '2022-01-09 04:03:26', '2022-01-09 04:03:26');
 
 -- --------------------------------------------------------
 
@@ -606,15 +603,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `users_activation_code_index` (`activation_code`),
   KEY `users_reset_password_code_index` (`reset_password_code`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `permissions`, `activated`, `banned`, `activation_code`, `activated_at`, `last_login`, `persist_code`, `reset_password_code`, `protected`, `created_at`, `updated_at`) VALUES
-(1, 'admin@admin.com', '$2y$10$dmufvjL7jAvP9a0LcZMVUO8NHOYpaHXmeLUB2wyYD7vT/sFDvbULu', NULL, 1, 0, NULL, NULL, '2021-09-04 01:05:32', '$2y$10$E4He3S3f2vI68P4Lkb/mCuNy9JGM9U0vNL35kq15.ntapAlJ4Qg/2', NULL, 0, '2021-04-15 23:31:34', '2021-09-04 01:24:36'),
-(9, 'ptnhuan@gmail.com', '$2y$10$0EKcSPdsPHTIyrwB3eW3auqZpddQ8yqG6deNBN.tdkZMvj5NjamM2', NULL, 1, 0, 'hZkHzeIStadZabpKD9Fb7Rp1G0vHomLMnqTTmIp8x1bumgHMviwnNhg', NULL, NULL, NULL, NULL, 0, '2021-09-04 00:43:43', '2021-09-04 00:44:09');
+(1, 'admin@admin.com', '$2y$10$dmufvjL7jAvP9a0LcZMVUO8NHOYpaHXmeLUB2wyYD7vT/sFDvbULu', NULL, 1, 0, NULL, NULL, '2022-01-08 01:20:03', '$2y$10$kvniqk4C/MwwNknYLWQeWe9/W2vQJPbUApF/Ru5.Hso2NA/IjNQtm', NULL, 0, '2021-04-15 23:31:34', '2022-01-08 01:20:03'),
+(9, 'abc@gmail.com', '$2y$10$0EKcSPdsPHTIyrwB3eW3auqZpddQ8yqG6deNBN.tdkZMvj5NjamM2', NULL, 1, 0, 'hZkHzeIStadZabpKD9Fb7Rp1G0vHomLMnqTTmIp8x1bumgHMviwnNhg', NULL, NULL, NULL, NULL, 0, '2021-09-04 00:43:43', '2021-09-04 00:44:09'),
+(10, 'bbbb@gmail.com', '$2y$10$QshSqzgSkivHXzAYngLpHu7eVoLTOF1JONTMq8l5/LGffxrnB1Gai', NULL, 0, 0, 'CR5lIXJVNs2jS1Z9KlhgUM3BRMPZwDHw9RXnm9gWxaRRkvvIPr5Jesn', NULL, NULL, NULL, NULL, 0, '2022-01-08 01:20:53', '2022-01-08 01:20:53'),
+(11, 'ptnhuan@gmail.com', '$2y$10$1eQf7G1vU9Fmc7amxHAADObTJH7/VTNyaM1ZWiVJ3myWCxnvyGe2C', NULL, 1, 0, '2GjQ8tGmzwNiGELdbHlxcxT17SaJJ7lrOUtvEjU2nVjO5zj9iUCAK1G', NULL, NULL, NULL, NULL, 0, '2022-01-08 01:25:50', '2022-01-08 01:26:38');
 
 -- --------------------------------------------------------
 
@@ -663,7 +662,7 @@ CREATE TABLE IF NOT EXISTS `user_profile` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_profile_user_id_foreign` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `user_profile`
@@ -676,7 +675,9 @@ INSERT INTO `user_profile` (`id`, `user_id`, `first_name`, `last_name`, `phone`,
 (4, 6, 'asdfasdf', 'asdfasdf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-16 02:40:46', '2021-04-16 02:40:46'),
 (5, 7, 'asdfas', 'asdfasdf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-16 02:41:30', '2021-04-16 02:41:30'),
 (6, 8, 'asdfasfd', 'asfd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-16 02:43:57', '2021-04-16 02:43:57'),
-(7, 9, 'Phan Thanh', 'Nhuần', NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, '2021-09-04 00:43:43', '2021-09-04 01:28:20');
+(7, 9, 'Phan Thanh', 'Nhuần', NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, '2021-09-04 00:43:43', '2021-09-04 01:28:20'),
+(8, 10, 'test', 'test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-08 01:20:53', '2022-01-08 01:20:53'),
+(9, 11, 'asdfas', 'asdf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-08 01:25:50', '2022-01-08 01:25:50');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
