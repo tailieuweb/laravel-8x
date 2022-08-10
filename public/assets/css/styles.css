@@ -74,6 +74,18 @@
 }
 .footer-customize {
     width: 100%;
+    --bs-card-border-radius: none;
+    --bs-card-border-radius: none !important;
+    position: relative;
+    height: 150px;
+    clear:both;
+    padding-top:20px;
+}
 
+.login-form {
+    margin-bottom: 50px;
+}
+.card-footer-body {
+    width: 100%;
     --bs-card-border-radius: none;
 }

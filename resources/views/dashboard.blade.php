@@ -35,17 +35,16 @@
 </nav>
 @yield('content')
     <div class='footer-customize'>
-        <div class="card">
+        <div class="card card-footer-body">
             <div class="container">
                 <div class="heading text-center">
                     <div class="head1">Laravel Auth</div>
                     <p class="bdr"></p>
                 </div>
-                <div class="card-body">
-                    <div class="row m-0">
-                        <div class="card col-12 col-md-3">
-                            <div class="card-content">
-                                <i class="fa-solid fa-align-left"></i>
+                <div class="">
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <div class="">
                                 <div class="card-title">
                                     FEATURES
                                 </div>
@@ -55,58 +54,22 @@
                                 <p><small>Logout</small></p>
                             </div>
                         </div>
-                        <div class="card col-12 col-md-3">
-                            <div class="card-content">
-                                <i class="far fa-handshake fa-3x"></i>
+                        <div class="col-12 col-md-4">
+                            <div class="">
                                 <div class="card-title">
-                                    ACCEPT ELECTRONIC
-                                    CHECK
+                                    SYSTEM REQUIREMENTS
                                 </div>
-                                <p><small>Save customers' cards for future phone orders</small></p>
-                                <div class="learn-more">
-                                    <p>
-                                        <small>
-                                            LEARN MORE
-                                            <label><i class="fas fa-angle-right"></i></label>
-                                        </small>
-                                    </p>
-                                </div>
+                                <p><small>Laravel 8.x</small></p>
+                                <p><small>PHP 8.x</small></p>
+                                <p><small>MySQL 5.6</small></p>
                             </div>
                         </div>
-                        <div class="card col-12 col-md-3">
-                            <div class="card-content">
-                                <i class="fas fa-mobile-alt fa-3x"></i>
+                        <div class="col-12 col-md-4">
+                            <div class="">
                                 <div class="card-title">
-                                    STREAMLINE PHONE
-                                    PAYMENTS
+                                   AUTOMATION TESTING
                                 </div>
-                                <p><small>Save customers' cards for future phone orders</small></p>
-                                <div class="learn-more">
-                                    <p>
-                                        <small>
-                                            LEARN MORE
-                                            <label><i class="fas fa-angle-right"></i></label>
-                                        </small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card col-12 col-md-3">
-                            <div class="card-content">
-                                <i class="fas fa-user-secret fa-3x"></i>
-                                <div class="card-title">
-                                    STAY<br />
-                                    SECURE
-                                </div>
-                                <p><small>Save customers' cards for future phone orders</small></p>
-                                <div class="learn-more">
-                                    <p>
-                                        <small>
-                                            LEARN MORE
-                                            <label><i class="fas fa-angle-right"></i></label>
-                                        </small>
-                                    </p>
-                                </div>
+                                <p><small>UTF ONE</small></p>
                             </div>
                         </div>
                     </div>

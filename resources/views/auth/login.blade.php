@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-4">
-                    <div class="card">
+                    <div class="card login-form">
                         <h3 class="card-header text-center">Login</h3>
                         <div class="card-body">
 
