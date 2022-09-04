@@ -185,6 +185,15 @@ return [
         /*
          * Package Service Providers...
          */
+        // package-acl
+        Foostart\Acl\Authentication\AuthenticationServiceProvider::class,
+        Foostart\Category\CategoryServiceProvider::class,
+        Foostart\Post\PostServiceProvider::class,
+        Foostart\Slideshow\SlideshowServiceProvider::class,
+        Foostart\Filemanager\FilemanagerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        Foostart\Pexcel\PexcelServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -210,6 +219,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Input' => Illuminate\Support\Facades\Request::class,
     ])->toArray(),
 
 ];
