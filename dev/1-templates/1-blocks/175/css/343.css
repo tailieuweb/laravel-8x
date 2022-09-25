@@ -1,0 +1,112 @@
+.type-343 {
+  background: #003b7a;
+  border: none;
+  height: auto;
+}
+.type-343 .clear {
+  clear: both;
+}
+.type-343 .top-menu {
+  padding: 0;
+}
+.type-343 .navbar-collapse {
+  padding: 0;
+}
+.type-343 a:hover {
+  background: none !important;
+}
+.type-343 .btn-menu {
+  font-size: 25px;
+  padding: 3px 10px;
+  border: 1px solid #000;
+  margin: 10px 0;
+  border-radius: 4px;
+  color: #fff;
+  float: right;
+}
+.type-343 .btn-menu:hover {
+  background: #000;
+}
+@media (min-width: 1200px) {
+  .type-343 li>a {
+    font-size: 1.1em;
+  }
+}
+@media (max-width: 1199px) {
+  .type-343 li>a {
+    font-size: 0.9em;
+  }
+}
+@media (min-width: 768px) {
+  .type-343 .top-menu {
+    width: 960px;
+  }
+  .type-343 .left-bg {
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    left: -100%;
+    height: 96px;
+  }
+  .type-343 .logo {
+    background-color: #fff;
+    padding: 17px 0;
+    padding-right: 30px;
+    position: absolute;
+    float: left;
+  }
+  .type-343 .triangle-arrow {
+    border-right: 58px solid transparent;
+    border-top: 96px solid #fff;
+    display: block;
+    position: absolute;
+    height: 0;
+    width: 0;
+    right: -58px;
+    top: 0;
+    filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.25));
+  }
+  .type-343 li>a {
+    color: #fff;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    padding: 25px 20px;
+  }
+  .type-343 .btn-menu {
+    display: none;
+  }
+  .type-343 .navbar-nav {
+    display: block;
+  }
+}
+@media (max-width: 767px) {
+  .type-343 .left-bg {
+    display: none;
+  }
+  .type-343 .logo {
+    background-color: #fff;
+    padding: 7px 0;
+    position: absolute;
+    float: left;
+  }
+  .type-343 .logo img {
+    height: 40px;
+  }
+  .type-343 .triangle-arrow {
+    display: block;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 0;
+    border-top: 55px solid #fff;
+    border-right: 30px solid transparent;
+    right: -30px;
+  }
+  .type-343 li>a {
+    padding: 10px 50px;
+    color: #fff;
+  }
+  .type-343 .navbar-collapse {
+    border-top: 1px solid #000;
+  }
+}

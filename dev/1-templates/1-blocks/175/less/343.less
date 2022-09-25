@@ -1,0 +1,120 @@
+.type-343{
+    @color_bg: #fff;
+    background: #003b7a;
+    border: none;
+    height: auto;
+   .clear{
+        clear: both;
+    }
+    .top-menu{
+        padding: 0;
+        
+    }
+    .navbar-collapse{
+        padding: 0;
+    }
+    
+    a:hover{
+        background: none !important;
+    }
+    .btn-menu{
+        font-size: 25px;
+        padding: 3px 10px;
+        border: 1px solid #000;
+        margin: 10px 0;
+        border-radius: 4px;
+        color: #fff;;
+        float: right;
+    }
+    .btn-menu:hover{
+        background: #000;
+    }
+    /*-------REPONSIVE----------*/
+    @media (min-width: 1200px){
+        li>a {
+            font-size: 1.1em;
+        }
+    }
+    @media (max-width: 1199px){
+        li>a {
+            font-size: 0.9em;
+        }
+    }
+    @media (min-width: 768px){
+        .top-menu{
+            width: 960px;
+        }
+        .left-bg {
+            position: absolute;
+            background-color: @color_bg;
+            width: 100%;
+            left: -100%;
+            height: 96px;
+        }
+        .logo {
+            background-color: @color_bg;
+            padding: 17px 0;
+            padding-right: 30px;
+            position: absolute;
+            float: left;
+        }
+        .triangle-arrow {
+            border-right: 58px solid transparent;
+            border-top: 96px solid @color_bg;
+            display: block;
+            position: absolute;
+            height: 0;
+            width: 0;
+            right: -58px;
+            top: 0;
+            filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.25));
+        }
+        li>a {
+            color: #fff;
+            font-family: 'Open Sans Condensed', sans-serif;
+            font-weight: bold;
+            
+            padding: 25px 20px;
+        }
+        .btn-menu{
+            display: none;
+        }
+        .navbar-nav{
+            display: block;
+        }
+    }
+    @media (max-width: 767px){
+        .left-bg{
+            display: none;
+        }
+        .logo{
+            background-color: #fff;
+            padding: 7px 0;
+            position: absolute;
+            float: left;
+            img {
+                height: 40px;
+            }
+        }
+        .triangle-arrow{
+            display: block;
+            position: absolute;
+            height: 0;
+            width: 0;
+            top: 0;
+            border-top: 55px solid @color_bg;
+            border-right: 30px solid transparent;
+            right: -30px;
+        }
+        li>a{
+            padding: 10px 50px;
+            color: @color_bg;
+        }
+        .navbar-collapse{
+            border-top: 1px solid #000;
+        }
+    }
+    @media (min-width: 480px){
+        
+    }
+}
