@@ -80,7 +80,10 @@ class CustomAuthController extends Controller
      * @return view
      */
     public function users() {
-        return view('auth.users');
+
+        $users = User::all();
+
+        return view('auth.users', ['users' => $users]);
     }
 
     //Log out
