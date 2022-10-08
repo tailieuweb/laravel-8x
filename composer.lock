@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89f1144825f1afeef3996c2f2a7142f6",
+    "content-hash": "634b9e741bcebe348ddfce82fd52e6bb",
     "packages": [
         {
             "name": "brick/math",
@@ -556,6 +556,49 @@
                 "source": "https://github.com/foostart/package-acl/tree/2022.09.041542"
             },
             "time": "2022-04-25T08:50:27+00:00"
+        },
+        {
+            "name": "foostart/package-branch",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/foostart/package-branch.git",
+                "reference": "db3005d271dc6bec3a239e18125ae296d6297d67"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/foostart/package-branch/zipball/db3005d271dc6bec3a239e18125ae296d6297d67",
+                "reference": "db3005d271dc6bec3a239e18125ae296d6297d67",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Foostart\\Branch\\": "/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "FooStart",
+                    "email": "foostart.com@gmail.com",
+                    "homepage": "http://foostart.com"
+                }
+            ],
+            "description": "Manage branch",
+            "keywords": [
+                "Laravel 9x",
+                "foostart"
+            ],
+            "support": {
+                "issues": "https://github.com/foostart/package-branch/issues",
+                "source": "https://github.com/foostart/package-branch/tree/main"
+            },
+            "time": "2022-10-08T07:57:01+00:00"
         },
         {
             "name": "foostart/package-category",
@@ -9071,7 +9114,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "foostart/package-branch": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
