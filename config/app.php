@@ -195,6 +195,7 @@ return [
         Foostart\Pexcel\PexcelServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Foostart\Front\FrontServiceProvider::class,
+        Foostart\Branch\BranchServiceProvider::class,
 
         /*
          * Application Service Providers...
