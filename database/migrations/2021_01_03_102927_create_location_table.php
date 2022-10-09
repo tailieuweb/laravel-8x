@@ -25,7 +25,9 @@ class CreateLocationTable extends FoostartMigration
      */
     public function down()
     {
-
+        Schema::dropIfExists('location_provinces');
+        Schema::dropIfExists('location_districts');
+        Schema::dropIfExists('location_wards');
     }
 
     /**
